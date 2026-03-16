@@ -5,8 +5,8 @@ import random   # Used for shuffling the deck randomly
 class Card:
     # Represents a single playing card
     def __init__(self, suit, rank):
-        pass      # Card suit (Hearts, Spades etc.)
-                  # Card value (2–A)
+        self.suit = suit      # Card suit (Hearts, Spades etc.)
+        self.rank = rank          # Card value (2–A)
 
     # Controls how the card prints when displayed
     def __str__(self):
