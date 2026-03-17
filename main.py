@@ -15,56 +15,57 @@ class Card:
 
 # ---------------- DECK CLASS ----------------
 class Deck:
-    # Represents a full deck of 52 cards
+ 
     def __init__(self):
 
         # All possible suits
-        pass
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
 
-        # All possible ranks
-        pass
+    # All possible ranks
+        ranks = ['2', '3', '4', '5', '6', '7', '8',
+                 '9', '10', 'J', 'Q', 'K', 'A']
 
-        pass  # Stores all card objects
+        self.cards = []   # Stores all card objects
 
-        # Create all 52 card combinations
-        pass
+    # Create all 52 card combinations
+        for suit in suits:
+            for rank in ranks:
+                self.cards.append(Card(suit, rank))
 
-    # Randomizes the order of cards
+# Randomizes the order of cards
     def shuffle(self):
-        pass
+        random.shuffle(self.cards)
 
-    # Removes and returns the top card
+# Removes and returns the top card
     def deal(self):
-        pass
-
+        return self.cards.pop()
 
 # ---------------- PLAYER CLASS ----------------
 class Player:
 
-    # Represents a game participant (human or computer)
     def __init__(self, name, chips=100):
 
-        pass         # Player name
-                     # Stores player's 2 cards
-                     # Starting chips
-                     # Tracks round bet
-                    # Player fold status
+        self.name = name           # Player name
+        self.hand = []             # Stores player's 2 cards
+        self.chips = chips         # Starting chips
+        self.current_bet = 0       # Tracks round bet
+        self.folded = False        # Player fold status
 
-    # Adds a card to player's hand
+# Adds a card to player's hand
     def add_card(self, card):
-        pass
+        self.hand.append(card)
 
-    # Displays player's cards
+# Displays player's cards
     def show_hand(self):
-        pass
+        for card in self.hand:
+            print(card)
 
-    # Resets player for next round
+# Resets player for next round
     def clear_hand(self):
 
-        pass            # Remove old cards
-                        # Reset fold state
-                        # Reset bet
-
+        self.hand = []            # Remove old cards
+        self.folded = False       # Reset fold state
+        self.current_bet = 0      # Reset bet
 
 # ---------------- GAME CLASS ----------------
 class Game:
